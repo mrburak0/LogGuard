@@ -8,11 +8,12 @@ Proje dış bağımlılıkları minimize ederek Docker üzerinde çalışacak ş
 LogGuard, Linux tabanlı sistemlerdeki karmaşık log verilerini anlamlandırmak ve güvenlik tehditlerini tespit etmek amacıyla geliştirilmiş, Docker mimarisi üzerinde çalışan modüler bir analiz ve izleme aracıdır. Teorik işleyişi bakımından "Adli Bilişim (Forensics)" ve "Aktif Savunma" prensiplerini bir araya getiren yazılım; statik analiz modülüyle geçmişe dönük verileri önceden tanımlanmış tehdit imzalarıyla (pattern matching) karşılaştırarak anomalileri tespit ederken, canlı izleme modülüyle veri akışını gerçek zamanlı (real-time) dinleyerek olası saldırı girişimlerini anında yakalar ve operatöre bildirir. Kullanıcı tarafından yapılandırılabilen harici bir kural setine dayalı olarak çalışan tespit motoru, elde edilen kritik bulguları geçici bellekten kalıcı CSV raporlarına dönüştürerek sistem yöneticilerine sürdürülebilir, kanıta dayalı ve hızlı bir denetim mekanizması sunar.
 
 ## Proje Mimarisi
-     Dosya     |    Açıklama 
-`log_guard.py` | Uygulamanın temel mantığını içeren ana Python modülü. 
-`filter_rules.txt` | Tehdit desenlerinin ve etiketlerinin tanımlandığı konfigürasyon dosyası. 
-`Dockerfile` | Uygulamanın izole ortamda derlenmesi ve çalıştırılması için gerekli imaj tanımı. 
-`scan_results.csv` | Analiz sonuçlarının dışa aktarıldığı rapor dosyası.
+| Dosya | Açıklama |
+| :--- | :--- |
+| `log_guard.py` | Uygulamanın temel mantığını içeren ana Python modülü. |
+| `filter_rules.txt` | Tehdit desenlerinin ve etiketlerinin tanımlandığı konfigürasyon dosyası. |
+| `Dockerfile` | Uygulamanın izole ortamda derlenmesi ve çalıştırılması için gerekli imaj tanımı. |
+| `scan_results.csv` | Analiz sonuçlarının dışa aktarıldığı rapor dosyası. |
 
 
 ## Çalışma Mantığı ve Modüller
@@ -32,7 +33,7 @@ Bu modül, **"Raporlama ve Arşivleme"** işlevini görür. Bellek üzerindeki v
 ### 4. Canlı İzleme (Real-Time Monitoring)
 Bu modül, **"Aktif Savunma"** mantığıyla çalışır. Geçmişle ilgilenmez, "şu an" odaklıdır. Program, dosyanın sonuna (`EOF`) konumlanır ve beklemeye başlar. İşletim sistemi dosyaya yeni bir satır yazdığı anda LogGuard bu satırı yakalar, analiz eder ve kural setine uyuyorsa operatöre anlık uyarı üretir.
 
-## 🛠 Kurulum ve Derleme (Build)
+## Kurulum ve Derleme (Build)
 Uygulamanın çalıştırılabilmesi için sistemde **Docker** servisinin kurulu olması gerekmektedir.
 
 Uygulama imajının oluşturulması için proje dizininde aşağıdaki komut çalıştırılmalıdır:
