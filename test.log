@@ -1,0 +1,8 @@
+Jan 10 12:33:01 server sshd[123]: Accepted password for root
+Jan 10 12:33:05 server sshd[123]: Failed password for invalid user admin from 192.168.1.50
+Jan 10 12:34:00 server kernel: [1234.56] UFW BLOCK IN=eth0 OUT= MAC=00:00:00 SRC=10.0.0.5 DST=10.0.0.1
+Jan 10 12:35:10 server nginx: 192.168.1.10 - - [10/Jan/2023:12:35:10] "GET /admin.php HTTP/1.1" 404 153 "-"
+Jan 10 12:36:00 server systemd[1]: Started Session 5 of user root.
+Jan 10 12:37:00 server myapp[99]: critical error: database connection timeout
+This is a normal line, nothing to see here.
+Another normal line.

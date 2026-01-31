@@ -1,0 +1,5 @@
+error,System Error
+Failed password,Auth Failure
+UFW BLOCK,Firewall Block
+root,Root Activity
+404,Page Not Found
